@@ -20,6 +20,7 @@ const frameworks = [
  * 1. Itere el arreglo frameworks.
  * Referencia: https://javascript.info/array#loops
  * 
+ * 
  * 2. En cada iteración, toma una cadena del arreglo y divídela en partes usando el separador "|".
  *    Referencia: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split
  *   
@@ -40,3 +41,17 @@ const frameworks = [
  *    para agregar una nueva fila con estos datos al cuerpo de la tabla HTML.
  */
 
+frameworks.forEach(framework => {
+  const [frameworkName, releaseDate, usersName, popularityPercentage] = framework
+    .split("|")
+    .map(item => item.trim());
+
+  const frameworkObj = {
+    frameworkName,
+    releaseDate,
+    usersName,
+    popularityPercentage
+  };
+
+  addRow(frameworkObj, "data-frameworks");
+});
